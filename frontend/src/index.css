@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+/* prevent dark mode */
+@plugin "daisyui" {
+  themes: false;
+}
+@plugin "@tailwindcss/typography";
+
+/* custom DaisyUI theme */
+@plugin "daisyui/theme" {
+  name: "custom";
+  default: true;
+  --color-primary: #094fa1; /* Dark Blue */
+  --color-secondary: #00aced; /* Light Blue */
+  --color-tertiary: #e8f9ff; /* Very Light Blue */
+  --color-accent: #1ab84e; /* Bright Green */
+  --color-neutral: #8a8c90; /* Dark Gray */
+  --color-base-100: #ffffff; /* White */
+  --color-warning: #d29532;
+  --color-error: #ce5656;
+}
+
+@theme {
+  --color-Primary: #094fa1; /* dark blue */
+  --color-Secondary: #00aced; /* blue */
+  --color-Tertiary: #e8f9ff; /* very light blue */
+  --color-LightBlue: #f3fcff; /* lighter blue */
+  --color-MidBlue: #d8efff;
+  --color-DarkBlue: #78a8ca;
+  --color-DarkerBlue: #094fa1; /* dark blue in donation forms*/
+  --color-Accent: #1ab84e; /* bright green */
+  --color-SemiWhite: #f2f9ff;
+  --color-FaintBlue: #dfedfc;
+  --color-wInput: #d8e3f0;
+
+  /* text colors */
+  --color-BlackText: #1f1f1f; /* not pure black */
+  --color-Label: #467eba; /* light blue */
+  --color-DarkerPrimary: #094ea0; /* darker Primary */
+  --color-Required: #ff4e4e; /* bright red */
+
+  /* status colors */
+  --color-Warning: #d29532;
+  --color-Error: #ce5656;
+  --color-LightGray: #e7e9e9; /* light gray */
+
+  /* border colors */
+  --color-ProfileBorder: #a3bddb; /* color of border outline in profile page (desktop) */
+  --color-Gray: #97a9be;
+
+  /* others */
+  --color-NotifHighlight: #daedff; /* highlighted notification color */
+
+  /* admin colors */
+  --color-AdminLightBlue: #bfdfff;
+  --color-AdminIconColor: #82A9D0;
+  --color-ReportPrimary: #BD0000;
+  --color-ReportSecondary: #FF8E8E;
+  --color-ReportTertiary: #FFF3F3;
+
+  /* gradient colors */
+  --color-DarkAndBlueGradient: linear-gradient(
+    65deg,
+    var(--color-Secondary),
+    var(--color-Primary)
+  ); /* color gradient seen in landing page */
+  --color-WhiteAndGrayGradient: linear-gradient(
+    186deg,
+    #fafafa 15.13%,
+    #094fa1 783.34%
+  ); /* white and gray gradient in cards */
+  --color-LightAndBlueGradient: linear-gradient(
+    180deg,
+    var(--color-Tertiary),
+    var(--color-Secondary)
+  );
+  --color-WhiteAndLightBlueGradient: linear-gradient(
+    180deg,
+    white,
+    var(--color-FaintBlue)
+  ); /* color gradient seen in create event form page */
+
+  --color-VerticalDarkAndBlueGradient: linear-gradient(
+    180deg,
+    var(--color-Secondary),
+    var(--color-Primary)
+  ); /* for profile picture border */
+
+  /* fonts */
+  --font-Inter: "Inter", serif;
+}
+
+@layer base {
+  body {
+    @apply font-Inter;
+  }
+}
+
+@layer components {
+  .bg-Gradient2 {
+    background: var(--color-DarkAndBlueGradient) !important;
+  }
+  .bg-WhiteAndGrayGradient {
+    background: var(--color-WhiteAndGrayGradient) !important;
+  }
+  .bg-VerticalDarkAndBlueGradient {
+    background: var(--color-VerticalDarkAndBlueGradient) !important;
+  }
+  .bg-WhiteFormGradient {
+    background: var(--color-WhiteAndLightBlueGradient) !important;
+  }
+}
+
+button {
+  @apply cursor-pointer; /* all buttons will now have cursor-pointer on hover */
+}
+
+.ProseMirror:focus {
+  /* will remove focus outline while typing in TextEditor.tsx components */
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.comment-editor a {
+  /* will add an underline to link text in CommentBox in TextEditor.tsx */
+  text-decoration: underline;
+}
+
+@layer utilities {
+  .no-spinner::-webkit-inner-spin-button,
+  .no-spinner::-webkit-outer-spin-button {
+    appearance: none;
+    margin: auto;
+    height: 50%;
+    width: 20%;
+  }
+}
+
+.pulse-bar {
+  background: linear-gradient(
+    90deg,
+    var(--color-Primary) 25%,
+    var(--color-Secondary) 50%,
+    var(--color-Primary) 75%
+  );
+  background-size: 200% 100%;
+  animation: pulseAnimation 5s linear infinite;
+}
+
+.scene-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+.scene-container > canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+
+  background: transparent;
+  color: transparent;
+  position: absolute;
+  right: 13px;
+  transform: scale(1.5);
+  cursor: pointer;
+}

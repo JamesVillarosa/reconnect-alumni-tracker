@@ -133,7 +133,7 @@ const LandingPage: React.FC = () => {
                 <OAuthButton
                   provider="Google"
                   logo="google"
-                  href={`${import.meta.env.VITE_API_URL}/google/auth/signin`}
+                  href={import.meta.env.VITE_GOOGLE_DEMO_URL || `${import.meta.env.VITE_API_URL}/google/auth/signin`}
                 />
 
                 {/* EMAIL AUTH TOGGLE */}
@@ -173,7 +173,7 @@ const LandingPage: React.FC = () => {
               <div className="flex flex-col items-center justify-center w-full text-sm">
                 <p>New to RE:CONNECT?</p>
                 <strong className="mb-8">
-                  <a className="font-bold underline" href="/signup">
+                  <a className="font-bold underline" href={`${import.meta.env.BASE_URL}signup`}>
                     Click here to join now
                   </a>
                 </strong>

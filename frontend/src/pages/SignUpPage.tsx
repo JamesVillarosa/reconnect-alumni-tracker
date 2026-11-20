@@ -198,7 +198,8 @@ const SignUpPage: React.FC = () => {
     &response_type=token
     &scope=email%20profile`;
 
-    window.location.href = googleAuthUrl;
+    // static demo builds have no OAuth client, so send visitors to Google's own account chooser
+    window.location.href = import.meta.env.VITE_GOOGLE_DEMO_URL || googleAuthUrl;
   };
 
   const handleSignupWithFacebook = () => {

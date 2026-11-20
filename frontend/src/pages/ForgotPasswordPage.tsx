@@ -322,7 +322,7 @@ const ForgotPasswordPage: React.FC = () => {
                 <h2 className="text-4xl text-center text-Primary">Success</h2>
                 <h3 className="text-sm text-center text-[#828282]">Your password has been reset successfully</h3>
                 <Button
-                    onClick={() => {window.location.href = "/"}}>
+                    onClick={() => {window.location.href = import.meta.env.BASE_URL}}>
                     CONTINUE
                 </Button>
             </div>

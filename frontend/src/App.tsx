@@ -55,7 +55,7 @@ import { PaginationProvider } from "./context/PaginationContext.tsx";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
         <PaginationProvider>
           <Routes>
